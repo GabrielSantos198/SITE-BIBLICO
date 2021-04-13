@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+    <head>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Gabriel Santana">
+        <meta name="description" content="Site bíblico 'Servos do Senhor', aqui você conhecerá um pouco mais da bíblia e suas incríveis histórias. Poderá desenvolver a sua fé através de belos Versículos e Parábolas. Queremos que você conheça a verdadeira alegria que é a de ter Jesus no Coração.">
+        <meta name="keywords" content="Histórias bíblicas, Parábolas, Versículo bíblicos, lições da bíblia, Site bíblico, lições de jesus, lições de fé, Site Servos do Senhor">
+        <meta name="copyright" content="© 2021 Gabriel Santana">
+        <meta name="rating" content="general">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+        <link rel="shortcut icon" href="{% static 'img/biblia.png' %}" type="image/x-icon">
+        <title>Servos do Senhor</title>
+    </head>
+
+    <body>
+
+        <section class="header">
+            <nav>
+                <input id="menu-hamburger" type="checkbox">
+
+                <label for="menu-hamburger">
+                    <section class="menu">
+                        <img src="https://static.wixstatic.com/media/fc7570_0b99766fd5ac43899d98e5dddf6934d8~mv2.gif" alt="Gif">
+                        <span class="hamburger"></span>
+                    </section>
+                </label>
+
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/#sobre">Sobre</a></li>
+                    <li><a href="/#versiculos">Versiculos</a></li>
+                    <li><a href="/#contato">Contato</a></li>
+                </ul>
+            </nav>
+
+            <!-- Menu do PC -->
+            <section class="pc-menu">
+                <img src="https://static.wixstatic.com/media/fc7570_0b99766fd5ac43899d98e5dddf6934d8~mv2.gif" alt="Gif">
+                <article>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/#sobre">Sobre</a></li>
+                    <li><a href="/#versiculos">Versiculos</a></li>
+                    <li><a href="/#contato">Contato</a></li>
+                </article>
+            </section>
+            <!-- Fim -->
+
+        </section>
+
+        <main class="principal">
+            
+            <form method="get" action="{% url 'search' %}" class="pesquisar">
+                <input type="search" name="q" required="required" placeholder="Pesquisar">
+                <button type="submit" class="enviar">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            
+            {% if object_list %}
+                <h1 class="resultados">RESULTADOS</h1>
+            {% else %}
+            <h1 class="resultados">NADA ENCONTRADO</h1>
+            {% endif %}
+            
+            <section class="postagens" id="versiculos">
+                {% for post in object_list %}
+                    <article class="espaco">
+                        <h1><a href="{% url 'detalhes' post.slug %}">{{ post.titulo }}</a></h1>
+                        <p>{{ post.sumario|safe }}</p>
+                    </article>
+                {% endfor %}
+            </section>
+
+            <section class="paginacao">
+
+                {% if is_paginated %}
+
+                    {% if page_obj.has_previous %}
+                        <a href="?page={{ page_obj.previous_page_number }}#versiculos"><i class="fas fa-arrow-left"></i></a>
+                    {% endif %}
+
+
+                    <span class="pag">
+                        {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}
+                    </span>
+
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}#versiculos"><i class="fas fa-arrow-right"></i></a>
+                    {% endif %}
+
+                {% endif %}
+                
+            </section>
+
+        </main>
+
+        <footer>
+            <h1>CONTATE-NÓS</h1>
+            <article> 
+                <form class="formulario" action="https://formspree.io/f/xvodobep" method="POST">
+                    <input name="name" type="text" required="required" placeholder="Digite seu nome">
+                    <input type="email" required="required" placeholder="Digite seu E-mail" name="_replyto">
+                    <textarea required="required" placeholder="Digite o que você deseja" cols="50" rows="10" name="message"></textarea>
+                    <input type="submit" required="required" placeholder="enviar" class="enviar">
+                </form>
+                <p>TODAS AS COISAS FORAM FEITAS POR ELE, E SEM ELE NADA DO QUE FOI FEITO SE FEZ. JOÃO 1:3</p>
+            </article>
+        </footer>
+    </body>
+</html>
+

@@ -1,0 +1,396 @@
+*{ 
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+html{
+   scroll-behavior: smooth;
+}
+
+
+.hamburger{
+    display: block;
+    background-color: #fff;
+    width: 30px;
+    height: 4px;
+    position: relative;
+    margin-right: 20px;
+    z-index: 2;
+}
+
+.hamburger:before, .hamburger:after{
+    background-color: #fff;
+    content: '';
+    display: block;
+    width: 30px;
+    height: 4px;
+    position: absolute;
+    transition: .5s;
+}
+
+.hamburger:before{
+    top: -10px;
+}
+
+.hamburger:after{
+    bottom: -10px;
+}
+
+#menu-hamburger{
+    display: none;
+}
+
+#menu-hamburger:checked ~ label .hamburger{
+    transform: rotate(45deg);
+}
+
+#menu-hamburger:checked ~ label .hamburger:before{
+    transform: rotate(90deg);
+    top: 0px;
+}
+
+#menu-hamburger:checked ~ label .hamburger:after{
+    transform: rotate(90deg);
+    bottom: 0px;
+}
+
+header{
+    background-color: #000;
+    background-image: url(../img/banner.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 85vh;
+}
+
+header .frase{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header .frase h1{
+    color: #fff;
+    font-size: 30px;
+    font-family: 'Russo One', sans-serif;
+}
+
+header .frase h3{
+    color: #fff;
+    font-size: 20px;
+    padding-bottom: 15px;
+    font-family: 'Russo One', sans-serif;
+}
+
+header .seta{
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-size: 55px;
+    margin-top: -10px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+header nav .menu, .header nav .menu{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav img, .header nav img{
+    width: 80px;
+    margin-left: 20px;
+}
+
+header nav ul, .header nav ul{
+    width: 100%;
+    height: 100vh;
+    background-color: #987654;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: -100%;
+    margin-top: -80px;
+    transition: .5s;
+}
+
+input:checked ~ ul{
+    left: 0;
+}
+
+header nav ul li, .header nav ul li{
+    padding: 10px;
+}
+
+header nav ul li a, .header nav ul li a{
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.header{
+    background-color: #3D4355;
+}
+
+main{
+    background-color: #E9E9E9;
+}
+
+.resultados{
+    text-align: center;
+    padding-bottom: 30px;
+    color: #3D4355;
+}
+
+main .sobre{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 40px;
+}
+
+main .sobre h1{
+    font-family: 'Russo One', sans-serif;
+    color: #3D4355;
+    font-size: 28px;
+    letter-spacing: 4px;
+    padding-bottom: 30px;
+}
+
+main .sobre p{
+    color: #3D4355;
+    line-height: 30px;
+}
+
+main .pesquisar{
+    width: 85%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main .pesquisar input{
+    width: 100%;
+}
+
+main .pesquisar .enviar{
+    padding: 10px;
+}
+
+main .postagens{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main .postagens h1 a{
+    color: #0072aa;
+    font-size: 30px;
+    font-family: ROBOTO;
+}
+
+main .postagens p{
+    color: #3D4355;
+}
+
+main .postagens .espaco{
+    padding-bottom: 40px;
+}
+
+.paginacao{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
+
+.paginacao a{
+    color: #0072aa;
+    font-size: 30px;
+}
+
+.paginacao .pag{
+    color: #000;
+    font-size: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+footer{
+    background-color: #3D4355;
+}
+
+footer h1{
+    text-align: center;
+    color: #ACB0B7;
+    padding-top: 30px;
+}
+
+footer .formulario{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+footer .formulario input{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+footer .formulario textarea{
+    margin-bottom: 20px
+}
+
+/* Página detalhes */
+.princial{
+    background-color: #E9E9E9;
+}
+
+.detalhes{
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 50px;
+}
+
+.principal .titulo{
+    font-size: 30px;
+    font-family: ROBOTO;
+    color: #3D4355;
+    padding-top: 50px;
+    padding-bottom: 30px;
+}
+
+.principal p{
+    color: #3D4355;
+    line-height: 30px;
+}
+
+.pc-menu{
+    display: none;
+}
+
+footer article p{
+    display: none;
+}
+
+/* Fim */
+
+/* Responsividade celular horizontal */
+@media (orientation:landscape){
+    header{
+        height: 115vh;
+    }
+
+    header .seta{
+        margin-top: -30px;
+    }
+}
+
+/* Responsividade Desktop */
+@media (min-width: 800px){
+    .header nav{
+        display: none;
+    }
+
+    header nav{
+        display: none;
+    }
+
+    .pc-menu{
+        display: block;
+        display: flex;
+        width: 100%;
+        height: 80px;
+        align-items: center;
+        justify-content: space-between;
+    background-color: #3D4355;
+    }
+
+    .pc-menu img{
+        width: 80px;
+        margin-left: 20px;
+    }
+     
+    .pc-menu article{
+        display: flex;
+        margin-right: 20px;
+    }
+
+    .pc-menu article li{
+        padding: 10px;
+    }
+
+    .pc-menu article li a{
+        color: #fff;
+        font-size: 25px;
+    }
+
+    footer .formulario{
+        display: flex;
+        width: 50%;
+        justify-content: flex-start;
+        margin-left: 50px;
+        margin-right: 1px;
+    }
+
+    footer h1{
+        width: 50%;
+        text-align: center;
+        margin-left: 50px;
+    }
+
+    footer article{
+        display: flex;
+        align-items: center;
+    }
+
+    footer article p{
+        width: 40%;
+        margin-left: auto;
+        margin-right: auto;
+        color: #ACB0B7;
+        font-size: 20px;
+        display: block;
+    }
+
+    header .frase h1{
+        font-size: 50px;
+    }
+
+    header .frase h3{
+        font-size: 40px;
+    }
+
+    header .seta{
+        font-size: 80px;
+        margin-top: 10px;
+    }
+
+    main .pesquisar{
+        width: 50%;
+    }
+}
+
