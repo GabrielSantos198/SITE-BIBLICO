@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'biblia',
     'ckeditor',
     'ckeditor_uploader',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +142,11 @@ MEDIA_URL = '/media_biblica/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_biblica')
 CKEDITOR_UPLOAD_PATH = 'uploads'
 
+
+CLOUDINARY_STORAGE  = {
+     'CLOUD_NAME' : 'degkn8uwg' ,
+     'API_KEY' : '754425774284344' ,
+     'API_SECRET' : 'CEiUkzvhBtvVJdcFvXiLrZTmil8'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
