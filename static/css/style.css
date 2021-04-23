@@ -18,7 +18,7 @@ html{
     height: 4px;
     position: relative;
     margin-right: 20px;
-    z-index: 2;
+    z-index: 6;
 }
 
 .hamburger:before, .hamburger:after{
@@ -94,9 +94,17 @@ header .seta{
     justify-content: center;
     color: #fff;
     font-size: 55px;
-    margin-top: -10px;
+    margin-top: -30px;
     cursor: pointer;
     transition: .5s;
+    animation: pular 1s ease infinite alternate;
+    z-index: 1;
+}
+
+@keyframes pular{
+    to{
+        transform: translateY(30px);
+    }
 }
 
 header nav .menu, .header nav .menu{
@@ -124,6 +132,7 @@ header nav ul, .header nav ul{
     left: -100%;
     margin-top: -80px;
     transition: .5s;
+    z-index: 5;
 }
 
 input:checked ~ ul{
@@ -305,7 +314,7 @@ footer article p{
     }
 
     header .seta{
-        margin-top: -30px;
+        margin-top: -50px;
     }
 }
 
@@ -386,7 +395,7 @@ footer article p{
 
     header .seta{
         font-size: 80px;
-        margin-top: 10px;
+        margin-top: -20px;
     }
 
     main .pesquisar{

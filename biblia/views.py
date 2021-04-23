@@ -7,7 +7,7 @@ from django.db.models import Q
 # Create your views here.
 
 class Inicio(ListView):
-    paginate_by = 10
+    paginate_by = 6
     template_name = 'index.html'
     queryset = Post.objects.all().order_by('-criado')
 
@@ -19,7 +19,7 @@ class Detalhes(DetailView):
 
 
 class Search(ListView):
-    paginate_by = 10
+    paginate_by = 6
     model = Post
     template_name = "search.html"
 
