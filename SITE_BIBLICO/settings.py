@@ -144,9 +144,9 @@ CKEDITOR_UPLOAD_PATH = 'uploads'
 
 
 CLOUDINARY_STORAGE  = {
-     'CLOUD_NAME' : 'degkn8uwg' ,
-     'API_KEY' : '754425774284344' ,
-     'API_SECRET' : 'CEiUkzvhBtvVJdcFvXiLrZTmil8'
+     'CLOUD_NAME' : config('CLOUD_NAME'),
+     'API_KEY' : config('API_KEY'),
+     'API_SECRET' : config('API_SECRET')
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
